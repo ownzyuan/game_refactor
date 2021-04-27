@@ -19,3 +19,7 @@ spring:
     password: 123456
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
+
+mybatis:
+  type-aliases-package: com.zy.common.entity
+  mapper-locations: classpath:mybatis/mapper/*.xml

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zy.hero.mapper.LolHeroMapper">
+
+    <resultMap id="BaseResultMap" type="com.zy.common.entity.LolHero">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="designation" jdbcType="VARCHAR" property="designation"/>
+        <result column="heroName" jdbcType="VARCHAR" property="heroName"/>
+        <result column="gender" jdbcType="TINYINT" property="gender"/>
+        <result column="forceId" jdbcType="BIGINT" property="forceId"/>
+        <result column="occupationOne" jdbcType="BIGINT" property="occupationOne"/>
+        <result column="occupationTwo" jdbcType="BIGINT" property="occupationTwo"/>
+        <result column="routeOne" jdbcType="BIGINT" property="routeOne"/>
+        <result column="routeTwo" jdbcType="BIGINT" property="routeTwo"/>
+        <result column="status" jdbcType="BIGINT" property="status"/>
+        <result column="createTime" jdbcType="DATE" property="createTime"/>
+        <result column="updateTime" jdbcType="DATE" property="updateTime"/>
+    </resultMap>
+
+    <sql id="tableName">
+        lol_hero
+    </sql>
+
+    <sql id="BaseColumn">
+        `id`, `designation`, `hero_name`, `gender`, `force_id`, `occupation_one`, `occupation_two`,
+        `route_one`, `route_two`, `status`, `create_time`, `update_time`
+    </sql>
+
+    <sql id="isExist">
+        `status`
+        = 1
+    </sql>
+
+    <sql id="queryCondition">
+        <if test="id != null">
+            id = #{id}
+        </if>
+        <if test="designation != null">
+            AND designation = #{designation}
+        </if>
+        <if test="heroName != null">
+            AND hero_name = #{heroName}
+        </if>
+        <if test="gender != null">
+            AND gender = #{gender}
+        </if>
+        <if test="forceId != null">
+            AND force_id = #{forceId}
+        </if>
+        <if test="occupationOne != null">
+            AND occupation_one = #{occupationOne}
+        </if>
+        <if test="occupationTwo != null">
+            AND occupation_two = #{occupationTwo}
+        </if>
+        <if test="routeOne != null">
+            AND route_one = #{routeOne}
+        </if>
+        <if test="routeTwo != null">
+            AND route_two = #{routeTwo}
+        </if>
+        <if test="status != null">
+            AND status = #{status}
+        </if>
+    </sql>
+
+    <sql id="set">
+        <if test="id != null">
+            id = #{id},
+        </if>
+        <if test="designation != null">
+            designation = #{designation},
+        </if>
+        <if test="heroName != null">
+            hero_name = #{heroName},
+        </if>
+        <if test="gender != null">
+            gender = #{gender},
+        </if>
+        <if test="forceId != null">
+            force_id = #{forceId},
+        </if>
+        <if test="occupationOne != null">
+            occupation_one = #{occupationOne},
+        </if>
+        <if test="occupationTwo != null">
+            occupation_two = #{occupationTwo},
+        </if>
+        <if test="routeOne != null">
+            route_one = #{routeOne},
+        </if>
+        <if test="routeTwo != null">
+            route_two = #{routeTwo},
+        </if>
+    </sql>
+
+    <select id="query" resultMap="BaseResultMap">
+        select
+        <include refid="BaseColumn" />
+        from
+        <include refid="tableName" />
+        <where>
+            <include refid="queryCondition" />
+        </where>
+    </select>
+
+    <insert id="insert" parameterType="com.zy.common.entity.LolHero">
+        insert
+        <include refid="tableName" />
+        <set>
+            <include refid="set" />
+        </set>
+    </insert>
+
+</mapper>
