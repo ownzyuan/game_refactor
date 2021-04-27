@@ -6,7 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="game-lol-conmmon-base" />
         <module name="game-eureka-server" />
+        <module name="game-lol-conmmon" />
       </profile>
     </annotationProcessing>
   </component>
