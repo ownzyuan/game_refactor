@@ -10,6 +10,8 @@
     <modules>
         <module>game-eureka-server</module>
         <module>game-lol-hero</module>
+        <module>game-lol-conmmon</module>
+        <module>game-lol-conmmon-base</module>
     </modules>
 
     <packaging>pom</packaging>
