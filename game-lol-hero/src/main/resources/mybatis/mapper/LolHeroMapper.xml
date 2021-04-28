@@ -7,16 +7,16 @@
     <resultMap id="BaseResultMap" type="com.zy.hero.DO.LolHeroDO">
         <id column="id" jdbcType="BIGINT" property="id"/>
         <result column="designation" jdbcType="VARCHAR" property="designation"/>
-        <result column="heroName" jdbcType="VARCHAR" property="heroName"/>
+        <result column="hero_name" jdbcType="VARCHAR" property="heroName"/>
         <result column="gender" jdbcType="TINYINT" property="gender"/>
-        <result column="forceId" jdbcType="BIGINT" property="forceId"/>
-        <result column="occupationOne" jdbcType="BIGINT" property="occupationOne"/>
-        <result column="occupationTwo" jdbcType="BIGINT" property="occupationTwo"/>
-        <result column="routeOne" jdbcType="BIGINT" property="routeOne"/>
-        <result column="routeTwo" jdbcType="BIGINT" property="routeTwo"/>
-        <result column="status" jdbcType="BIGINT" property="status"/>
-        <result column="createTime" jdbcType="BIGINT" property="createTime"/>
-        <result column="updateTime" jdbcType="BIGINT" property="updateTime"/>
+        <result column="force_id" jdbcType="BIGINT" property="forceId"/>
+        <result column="occupation_one" jdbcType="BIGINT" property="occupationOne"/>
+        <result column="occupation_two" jdbcType="BIGINT" property="occupationTwo"/>
+        <result column="route_one" jdbcType="BIGINT" property="routeOne"/>
+        <result column="route_two" jdbcType="BIGINT" property="routeTwo"/>
+        <result column="status" jdbcType="TINYINT" property="status"/>
+        <result column="create_time" jdbcType="BIGINT" property="createTime"/>
+        <result column="update_time" jdbcType="BIGINT" property="updateTime"/>
     </resultMap>
 
     <sql id="tableName">
@@ -34,64 +34,73 @@
 
     <sql id="queryCondition">
         <if test="id != null">
-            id = #{id}
+            `id` = #{id}
         </if>
         <if test="designation != null">
-            AND designation = #{designation}
+            AND `designation` = #{designation}
         </if>
         <if test="heroName != null">
-            AND hero_name = #{heroName}
+            AND `hero_name` = #{heroName}
         </if>
         <if test="gender != null">
-            AND gender = #{gender}
+            AND `gender` = #{gender}
         </if>
         <if test="forceId != null">
-            AND force_id = #{forceId}
+            AND `force_id` = #{forceId}
         </if>
         <if test="occupationOne != null">
-            AND occupation_one = #{occupationOne}
+            AND `occupation_one` = #{occupationOne}
         </if>
         <if test="occupationTwo != null">
-            AND occupation_two = #{occupationTwo}
+            AND `occupation_two` = #{occupationTwo}
         </if>
         <if test="routeOne != null">
-            AND route_one = #{routeOne}
+            AND `route_one` = #{routeOne}
         </if>
         <if test="routeTwo != null">
-            AND route_two = #{routeTwo}
+            AND `route_two` = #{routeTwo}
         </if>
         <if test="status != null">
-            AND status = #{status}
+            AND `status` = #{status}
         </if>
     </sql>
 
     <sql id="set">
         <if test="id != null">
-            id = #{id},
+            `id` = #{id},
         </if>
         <if test="designation != null">
-            designation = #{designation},
+            `designation` = #{designation},
         </if>
         <if test="heroName != null">
-            hero_name = #{heroName},
+            `hero_name` = #{heroName},
         </if>
         <if test="gender != null">
-            gender = #{gender},
+            `gender` = #{gender},
         </if>
         <if test="forceId != null">
-            force_id = #{forceId},
+            `force_id` = #{forceId},
         </if>
         <if test="occupationOne != null">
-            occupation_one = #{occupationOne},
+            `occupation_one` = #{occupationOne},
         </if>
         <if test="occupationTwo != null">
-            occupation_two = #{occupationTwo},
+            `occupation_two` = #{occupationTwo},
         </if>
         <if test="routeOne != null">
-            route_one = #{routeOne},
+            `route_one` = #{routeOne},
         </if>
         <if test="routeTwo != null">
-            route_two = #{routeTwo},
+            `route_two` = #{routeTwo},
+        </if>
+        <if test="status != null">
+            `status` = #{status},
+        </if>
+        <if test="createTime != null">
+            `create_time` = #{createTime},
+        </if>
+        <if test="updateTime != null">
+            `update_time` = #{updateTime},
         </if>
     </sql>
 
@@ -113,5 +122,15 @@
             <include refid="set" />
         </set>
     </insert>
+
+    <update id="update" parameterType="com.zy.hero.DO.LolHeroDO">
+        update
+        <include refid="tableName" />
+        <set>
+            <include refid="set" />
+        </set>
+        where
+        <include refid="isExist" /> AND id = #{id}
+    </update>
 
 </mapper>

@@ -4,12 +4,14 @@ import com.zy.common.entity.LolHero;
 import com.zy.hero.DO.LolHeroDO;
 import com.zy.hero.mapper.LolHeroMapper;
 import com.zy.hero.service.LolHeroService;
-import org.springframework.beans.BeanUtils;
+import com.zy.hero.utils.LolHeroUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static com.zy.hero.utils.LolHeroUtil.setTime;
 
 @Service
 public class LolHeroServiceImpl implements LolHeroService {
@@ -18,22 +20,32 @@ public class LolHeroServiceImpl implements LolHeroService {
     private LolHeroMapper lolHeroMapper;
 
     @Override
-    public List<LolHero> query(LolHeroDO lolHeroDO) {
-        List<LolHeroDO> lolHeroDOList = lolHeroMapper.query(lolHeroDO);
+    public List<LolHero> query(LolHeroDO DO) {
+        List<LolHeroDO> lolHeroDOList = lolHeroMapper.query(DO);
         return lolHeroDOList.stream()
-                .map(DO -> LolHeroDoToEntity(DO))
+                .map(LolHeroUtil::LolHeroDoToEntity)
                 .collect(Collectors.toList());
     }
 
-    private LolHero LolHeroDoToEntity(LolHeroDO DO) {
-        LolHero lolHero = new LolHero();
-        BeanUtils.copyProperties(DO, lolHero);
-        if (DO.getId() != null) {
-            lolHero.setId(DO.getId());
-        }
-        if (DO.getStatus() != null) {
-            lolHero.setStatus(DO.getStatus());
-        }
-        return lolHero;
+    @Override
+    public int insert(LolHeroDO DO) {
+        LolHeroDO lolHeroDO = setTime(DO);
+        return lolHeroMapper.insert(lolHeroDO);
     }
+
+    @Override
+    public int update(LolHeroDO DO) {
+        LolHeroDO lolHeroDO = setTime(DO);
+        return lolHeroMapper.update(lolHeroDO);
+    }
+
+    @Override
+    public int delete(Long id) {
+        LolHeroDO lolHeroDO = new LolHeroDO();
+        lolHeroDO.setId(id);
+        lolHeroDO.setStatus(0)
+                .setUpdateTime(System.currentTimeMillis());
+        return lolHeroMapper.update(lolHeroDO);
+    }
+
 }

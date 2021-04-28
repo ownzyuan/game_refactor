@@ -12,4 +12,7 @@ public interface LolHeroMapper {
     List<LolHeroDO> query(LolHeroDO lolHeroDO);
 
     int insert(LolHeroDO lolHeroDO);
+
+    int update(LolHeroDO lolHeroDO);
+
 }
