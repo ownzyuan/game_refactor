@@ -1,10 +1,18 @@
 package com.zy.hero.DO;
 
+import com.zy.base.DO.BaseDO;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
 import java.util.Date;
 
 @Data
-public class LolHeroDO {
+@EqualsAndHashCode(callSuper = false)
+@AllArgsConstructor
+@NoArgsConstructor
+public class LolHeroDO extends BaseDO {
 
     // 主键 id
     private Long id;

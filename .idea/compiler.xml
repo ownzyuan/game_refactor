@@ -13,8 +13,5 @@
         <module name="game-eureka-server" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="game-lol-hero" target="8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
