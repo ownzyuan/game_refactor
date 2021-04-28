@@ -6,8 +6,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
-
 @Data
 @EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor
@@ -43,8 +41,8 @@ public class LolHeroDO extends BaseDO {
     private Integer status;
 
     // 创建时间
-    private Date createTime;
+    private Long createTime;
 
     // 修改时间
-    private Date updateTime;
+    private Long updateTime;
 }
