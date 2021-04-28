@@ -1,6 +1,6 @@
 package com.zy.hero.mapper;
 
-import com.zy.common.entity.LolHero;
+import com.zy.hero.DO.LolHeroDO;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface LolHeroMapper {
 
-    List<LolHero> query(LolHero lolHero);
+    List<LolHeroDO> query(LolHeroDO lolHeroDO);
 
-    int insert(LolHero lolHero);
+    int insert(LolHeroDO lolHeroDO);
 }

@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zy.hero.mapper.LolHeroMapper">
 
-    <resultMap id="BaseResultMap" type="com.zy.common.entity.LolHero">
+    <resultMap id="BaseResultMap" type="com.zy.hero.DO.LolHeroDO">
         <id column="id" jdbcType="BIGINT" property="id"/>
         <result column="designation" jdbcType="VARCHAR" property="designation"/>
         <result column="heroName" jdbcType="VARCHAR" property="heroName"/>
@@ -104,9 +104,10 @@
         <where>
             <include refid="queryCondition" />
         </where>
+        order by `update_time`
     </select>
 
-    <insert id="insert" parameterType="com.zy.common.entity.LolHero">
+    <insert id="insert" parameterType="com.zy.hero.DO.LolHeroDO">
         insert
         <include refid="tableName" />
         <set>

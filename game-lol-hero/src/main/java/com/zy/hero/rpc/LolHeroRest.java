@@ -1,6 +1,7 @@
 package com.zy.hero.rpc;
 
 import com.zy.common.entity.LolHero;
+import com.zy.hero.DO.LolHeroDO;
 import com.zy.hero.service.LolHeroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,9 +19,9 @@ public class LolHeroRest {
 
     @GetMapping("/query")
     public String query() {
-        LolHero lolHero = new LolHero();
-        lolHero.setId(3L);
-        List<LolHero> lolHeroList = lolHeroService.query(lolHero);
+        LolHeroDO lolHeroDO = new LolHeroDO();
+        lolHeroDO.setId(3L);
+        List<LolHero> lolHeroList = lolHeroService.query(lolHeroDO);
         System.out.println(lolHeroList);
         return "true";
     }
