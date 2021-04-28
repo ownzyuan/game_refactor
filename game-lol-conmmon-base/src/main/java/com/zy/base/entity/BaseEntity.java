@@ -3,7 +3,6 @@ package com.zy.base.entity;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.util.Date;
 
 @Data
 public class BaseEntity implements Serializable {
@@ -17,9 +16,9 @@ public class BaseEntity implements Serializable {
     private Integer status;
 
     // 创建时间
-    private Date createTime;
+    private Long createTime;
 
     // 修改时间
-    private Date updateTime;
+    private Long updateTime;
 
 }
