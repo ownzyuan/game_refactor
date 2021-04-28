@@ -2,10 +2,13 @@ package com.zy.base.entity;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
-public class BaseEntity {
+public class BaseEntity implements Serializable {
+
+    private static final long serialVersionUID = 114514114514L;
 
     // 主键 id
     private Long id;
