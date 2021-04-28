@@ -15,8 +15,8 @@
         <result column="routeOne" jdbcType="BIGINT" property="routeOne"/>
         <result column="routeTwo" jdbcType="BIGINT" property="routeTwo"/>
         <result column="status" jdbcType="BIGINT" property="status"/>
-        <result column="createTime" jdbcType="DATE" property="createTime"/>
-        <result column="updateTime" jdbcType="DATE" property="updateTime"/>
+        <result column="createTime" jdbcType="BIGINT" property="createTime"/>
+        <result column="updateTime" jdbcType="BIGINT" property="updateTime"/>
     </resultMap>
 
     <sql id="tableName">
@@ -29,8 +29,7 @@
     </sql>
 
     <sql id="isExist">
-        `status`
-        = 1
+        `status` = 1
     </sql>
 
     <sql id="queryCondition">
