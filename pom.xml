@@ -12,6 +12,7 @@
         <module>game-lol-hero</module>
         <module>game-lol-conmmon</module>
         <module>game-lol-conmmon-base</module>
+        <module>game-lol-web</module>
     </modules>
 
     <packaging>pom</packaging>
