@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface LolHeroService {
 
-    List<LolHero> query(LolHeroDO lolHeroDO);
-    int insert(LolHeroDO lolHeroDO);
-    int update(LolHeroDO lolHeroDO);
+    List<LolHero> query(LolHeroDO DO);
+    int insert(LolHeroDO DO);
+    int update(LolHeroDO DO);
     int delete(Long id);
 
 }

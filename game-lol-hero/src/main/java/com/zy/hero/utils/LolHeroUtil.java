@@ -25,30 +25,30 @@ public class LolHeroUtil {
     }
 
     public static LolHeroDO LolHeroToDO(LolHero lolHero) {
-        LolHeroDO lolHeroDO = new LolHeroDO();
-        BeanUtils.copyProperties(lolHero, lolHeroDO);
+        LolHeroDO DO = new LolHeroDO();
+        BeanUtils.copyProperties(lolHero, DO);
         if (lolHero.getId() != null) {
-            lolHeroDO.setId(lolHero.getId());
+            DO.setId(lolHero.getId());
         }
         if (lolHero.getStatus() != null) {
-            lolHeroDO.setStatus(lolHero.getStatus());
+            DO.setStatus(lolHero.getStatus());
         }
         if (lolHero.getCreateTime() != null) {
-            lolHeroDO.setCreateTime(lolHero.getCreateTime());
+            DO.setCreateTime(lolHero.getCreateTime());
         }
         if (lolHero.getUpdateTime() != null) {
-            lolHeroDO.setUpdateTime(lolHero.getUpdateTime());
+            DO.setUpdateTime(lolHero.getUpdateTime());
         }
-        return lolHeroDO;
+        return DO;
     }
 
-    public static LolHeroDO setTime(LolHeroDO lolHeroDO) {
+    public static LolHeroDO setTime(LolHeroDO DO) {
         long nowTime = System.currentTimeMillis();
-        if (lolHeroDO.getCreateTime() == null) {
-            lolHeroDO.setCreateTime(nowTime);
+        if (DO.getCreateTime() == null) {
+            DO.setCreateTime(nowTime);
         }
-        lolHeroDO.setUpdateTime(nowTime);
-        return lolHeroDO;
+        DO.setUpdateTime(nowTime);
+        return DO;
     }
 
 }

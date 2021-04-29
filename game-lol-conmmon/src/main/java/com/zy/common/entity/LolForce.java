@@ -13,6 +13,6 @@ import lombok.NoArgsConstructor;
 public class LolForce extends BaseEntity {
 
     // 势力名
-    private String fName;
+    private String forceName;
 
 }

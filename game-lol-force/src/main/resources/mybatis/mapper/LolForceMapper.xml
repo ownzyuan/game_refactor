@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zy.force.mapper.LolForceMapper">
+
+    <resultMap id="BaseResultMap" type="com.zy.force.DO.LolForceDO">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="force_name" jdbcType="VARCHAR" property="forceName"/>
+        <result column="status" jdbcType="TINYINT" property="status"/>
+        <result column="create_time" jdbcType="BIGINT" property="createTime"/>
+        <result column="update_time" jdbcType="BIGINT" property="updateTime"/>
+    </resultMap>
+
+    <sql id="tableName">
+        lol_force
+    </sql>
+
+    <sql id="BaseColumn">
+        `id`, `force_name`, `status`, `create_time`, `update_time`
+    </sql>
+
+    <sql id="isExist">
+        `status` = 1
+    </sql>
+
+    <sql id="queryCondition">
+        <if test="id != null">
+            `id` = #{id}
+        </if>
+        <if test="forceName != null">
+            AND `force_name` = #{forceName}
+        </if>
+        <if test="status != null">
+            AND `status` = #{status}
+        </if>
+    </sql>
+
+    <sql id="set">
+        <if test="id != null">
+            `id` = #{id},
+        </if>
+        <if test="forceName != null">
+            `force_name` = #{forceName},
+        </if>
+        <if test="status != null">
+            `status` = #{status},
+        </if>
+        <if test="createTime != null">
+            `create_time` = #{createTime},
+        </if>
+        <if test="updateTime != null">
+            `update_time` = #{updateTime},
+        </if>
+    </sql>
+
+    <select id="query" resultMap="BaseResultMap">
+        select
+        <include refid="BaseColumn" />
+        from
+        <include refid="tableName" />
+        <where>
+            <include refid="queryCondition" />
+        </where>
+        order by `update_time`
+    </select>
+
+    <insert id="insert" parameterType="com.zy.force.DO.LolForceDO">
+        insert
+        <include refid="tableName" />
+        <set>
+            <include refid="set" />
+        </set>
+    </insert>
+
+    <update id="update" parameterType="com.zy.force.DO.LolForceDO">
+        update
+        <include refid="tableName" />
+        <set>
+            <include refid="set" />
+        </set>
+        where
+        <include refid="isExist" /> AND id = #{id}
+    </update>
+
+</mapper>

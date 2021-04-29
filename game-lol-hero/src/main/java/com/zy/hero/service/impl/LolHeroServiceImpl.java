@@ -29,23 +29,23 @@ public class LolHeroServiceImpl implements LolHeroService {
 
     @Override
     public int insert(LolHeroDO DO) {
-        LolHeroDO lolHeroDO = setTime(DO);
-        return lolHeroMapper.insert(lolHeroDO);
+        LolHeroDO afterSetTime = setTime(DO);
+        return lolHeroMapper.insert(afterSetTime);
     }
 
     @Override
     public int update(LolHeroDO DO) {
-        LolHeroDO lolHeroDO = setTime(DO);
-        return lolHeroMapper.update(lolHeroDO);
+        LolHeroDO afterSetTime = setTime(DO);
+        return lolHeroMapper.update(afterSetTime);
     }
 
     @Override
     public int delete(Long id) {
-        LolHeroDO lolHeroDO = new LolHeroDO();
-        lolHeroDO.setId(id);
-        lolHeroDO.setStatus(0)
+        LolHeroDO DO = new LolHeroDO();
+        DO.setId(id);
+        DO.setStatus(0)
                 .setUpdateTime(System.currentTimeMillis());
-        return lolHeroMapper.update(lolHeroDO);
+        return lolHeroMapper.update(DO);
     }
 
 }
