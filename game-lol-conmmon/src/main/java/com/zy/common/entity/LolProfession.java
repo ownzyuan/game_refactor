@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor
 @NoArgsConstructor
-public class LolOccupation extends BaseEntity {
+public class LolProfession extends BaseEntity {
 
     // 职业名(英文)
     private String nameUs;

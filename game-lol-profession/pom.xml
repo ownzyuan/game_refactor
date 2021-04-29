@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>game-lol-occupation</artifactId>
+    <artifactId>game-lol-profession</artifactId>
 
     <dependencies>
         <dependency>

@@ -7,11 +7,11 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@MapperScan("com.zy.occupation.mapper")
-public class GameLolOccupationApplication {
+@MapperScan("com.zy.profession.mapper")
+public class GameLolProfessionApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(GameLolOccupationApplication.class, args);
+        SpringApplication.run(GameLolProfessionApplication.class, args);
     }
 
 }

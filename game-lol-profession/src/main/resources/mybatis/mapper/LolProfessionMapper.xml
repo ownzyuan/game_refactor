@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zy.profession.mapper.LolProfessionMapper">
+
+    <resultMap id="BaseResultMap" type="com.zy.profession.DO.LolProfessionDO">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="name_us" jdbcType="VARCHAR" property="nameUs"/>
+        <result column="name_cn" jdbcType="VARCHAR" property="nameCn"/>
+        <result column="status" jdbcType="TINYINT" property="status"/>
+        <result column="create_time" jdbcType="BIGINT" property="createTime"/>
+        <result column="update_time" jdbcType="BIGINT" property="updateTime"/>
+    </resultMap>
+
+    <sql id="tableName">
+        lol_profession
+    </sql>
+
+    <sql id="BaseColumn">
+        `id`, `name_us`, `name_cn`, `status`, `create_time`, `update_time`
+    </sql>
+
+    <sql id="isExist">
+        `status` = 1
+    </sql>
+
+    <sql id="queryCondition">
+        <if test="id != null">
+            `id` = #{id}
+        </if>
+        <if test="nameUs != null">
+            AND `name_us` = #{nameUs}
+        </if>
+        <if test="nameCn != null">
+            AND `name_cn` = #{nameCn}
+        </if>
+        <if test="status != null">
+            AND `status` = #{status}
+        </if>
+    </sql>
+
+    <sql id="set">
+        <if test="id != null">
+            `id` = #{id},
+        </if>
+        <if test="nameUs != null">
+            `name_us` = #{nameUs},
+        </if>
+        <if test="nameCn != null">
+            `name_cn` = #{nameCn},
+        </if>
+        <if test="status != null">
+            `status` = #{status},
+        </if>
+        <if test="createTime != null">
+            `create_time` = #{createTime},
+        </if>
+        <if test="updateTime != null">
+            `update_time` = #{updateTime},
+        </if>
+    </sql>
+
+    <select id="query" resultMap="BaseResultMap">
+        select
+        <include refid="BaseColumn" />
+        from
+        <include refid="tableName" />
+        <where>
+            <include refid="queryCondition" />
+        </where>
+        order by `update_time`
+    </select>
+
+    <insert id="insert" parameterType="com.zy.profession.DO.LolProfessionDO">
+        insert
+        <include refid="tableName" />
+        <set>
+            <include refid="set" />
+        </set>
+    </insert>
+
+    <update id="update" parameterType="com.zy.profession.DO.LolProfessionDO">
+        update
+        <include refid="tableName" />
+        <set>
+            <include refid="set" />
+        </set>
+        where
+        <include refid="isExist" /> AND id = #{id}
+    </update>
+
+</mapper>

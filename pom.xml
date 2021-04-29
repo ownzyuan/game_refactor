@@ -14,8 +14,8 @@
         <module>game-lol-conmmon-base</module>
         <module>game-lol-web</module>
         <module>game-lol-force</module>
-        <module>game-lol-occupation</module>
         <module>game-lol-route</module>
+        <module>game-lol-profession</module>
     </modules>
 
     <packaging>pom</packaging>
