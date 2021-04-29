@@ -10,10 +10,10 @@ import java.util.List;
 @Repository
 public interface LolForceMapper {
 
-    List<LolForceDO> query(LolForceDO lolForceDO);
+    List<LolForceDO> query(LolForceDO DO);
 
-    int insert(LolForceDO lolForceDO);
+    int insert(LolForceDO DO);
 
-    int update(LolForceDO lolForceDO);
+    int update(LolForceDO DO);
 
 }

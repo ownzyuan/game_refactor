@@ -20,8 +20,8 @@ public class LolForceServiceImpl implements LolForceService {
     private LolForceMapper lolForceMapper;
 
     @Override
-    public List<LolForce> query(LolForceDO lolForceDO) {
-        List<LolForceDO> lolForceDOList = lolForceMapper.query(lolForceDO);
+    public List<LolForce> query(LolForceDO DO) {
+        List<LolForceDO> lolForceDOList = lolForceMapper.query(DO);
         return lolForceDOList.stream()
                 .map(LolForceUtil::LolForceDoToEntity)
                 .collect(Collectors.toList());
