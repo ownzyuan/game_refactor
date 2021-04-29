@@ -13,6 +13,6 @@ import lombok.NoArgsConstructor;
 public class LolRoute extends BaseEntity {
 
     // 分路
-    private String route;
+    private String routeName;
 
 }

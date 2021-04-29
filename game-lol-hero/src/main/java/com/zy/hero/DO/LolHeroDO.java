@@ -30,9 +30,9 @@ public class LolHeroDO extends BaseDO {
     private Long forceId;
 
     // 职业（主）
-    private Long occupationOne;
+    private Long professionOne;
     // 职业（次）
-    private Long occupationTwo;
+    private Long professionTwo;
 
     // 推荐分路一
     private Long routeOne;

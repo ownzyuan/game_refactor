@@ -6,7 +6,7 @@
 
     <resultMap id="BaseResultMap" type="com.zy.route.DO.LolRouteDO">
         <id column="id" jdbcType="BIGINT" property="id"/>
-        <result column="route" jdbcType="VARCHAR" property="route"/>
+        <result column="route_name" jdbcType="VARCHAR" property="routeName"/>
         <result column="status" jdbcType="TINYINT" property="status"/>
         <result column="create_time" jdbcType="BIGINT" property="createTime"/>
         <result column="update_time" jdbcType="BIGINT" property="updateTime"/>
@@ -17,7 +17,7 @@
     </sql>
 
     <sql id="BaseColumn">
-        `id`, `route`, `status`, `create_time`, `update_time`
+        `id`, `route_name`, `status`, `create_time`, `update_time`
     </sql>
 
     <sql id="isExist">
@@ -28,8 +28,8 @@
         <if test="id != null">
             `id` = #{id}
         </if>
-        <if test="route != null">
-            AND `route` = #{route}
+        <if test="routeName != null">
+            AND `route_name` = #{routeName}
         </if>
         <if test="status != null">
             AND `status` = #{status}
@@ -40,8 +40,8 @@
         <if test="id != null">
             `id` = #{id},
         </if>
-        <if test="route != null">
-            `route` = #{route},
+        <if test="routeName != null">
+            `route_name` = #{routeName},
         </if>
         <if test="status != null">
             `status` = #{status},

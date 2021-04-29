@@ -10,8 +10,8 @@
         <result column="hero_name" jdbcType="VARCHAR" property="heroName"/>
         <result column="gender" jdbcType="TINYINT" property="gender"/>
         <result column="force_id" jdbcType="BIGINT" property="forceId"/>
-        <result column="occupation_one" jdbcType="BIGINT" property="occupationOne"/>
-        <result column="occupation_two" jdbcType="BIGINT" property="occupationTwo"/>
+        <result column="profession_one" jdbcType="BIGINT" property="professionOne"/>
+        <result column="profession_two" jdbcType="BIGINT" property="professionTwo"/>
         <result column="route_one" jdbcType="BIGINT" property="routeOne"/>
         <result column="route_two" jdbcType="BIGINT" property="routeTwo"/>
         <result column="status" jdbcType="TINYINT" property="status"/>
@@ -24,7 +24,7 @@
     </sql>
 
     <sql id="BaseColumn">
-        `id`, `designation`, `hero_name`, `gender`, `force_id`, `occupation_one`, `occupation_two`,
+        `id`, `designation`, `hero_name`, `gender`, `force_id`, `profession_one`, `profession_two`,
         `route_one`, `route_two`, `status`, `create_time`, `update_time`
     </sql>
 
@@ -48,11 +48,11 @@
         <if test="forceId != null">
             AND `force_id` = #{forceId}
         </if>
-        <if test="occupationOne != null">
-            AND `occupation_one` = #{occupationOne}
+        <if test="professionOne != null">
+            AND `profession_one` = #{professionOne}
         </if>
-        <if test="occupationTwo != null">
-            AND `occupation_two` = #{occupationTwo}
+        <if test="professionTwo != null">
+            AND `profession_two` = #{professionTwo}
         </if>
         <if test="routeOne != null">
             AND `route_one` = #{routeOne}
@@ -81,11 +81,11 @@
         <if test="forceId != null">
             `force_id` = #{forceId},
         </if>
-        <if test="occupationOne != null">
-            `occupation_one` = #{occupationOne},
+        <if test="professionOne != null">
+            `profession_one` = #{professionOne},
         </if>
-        <if test="occupationTwo != null">
-            `occupation_two` = #{occupationTwo},
+        <if test="professionTwo != null">
+            `profession_two` = #{professionTwo},
         </if>
         <if test="routeOne != null">
             `route_one` = #{routeOne},

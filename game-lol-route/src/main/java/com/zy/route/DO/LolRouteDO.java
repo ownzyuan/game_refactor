@@ -18,7 +18,7 @@ public class LolRouteDO extends BaseDO {
     private Long id;
 
     // 分路名
-    private String route;
+    private String routeName;
 
     // 逻辑删除 1：未删除 0：已删除
     private Integer status;
