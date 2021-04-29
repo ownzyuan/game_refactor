@@ -7,11 +7,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="game-lol-conmmon-base" />
+        <module name="game-lol-route" />
         <module name="game-lol-hero" />
+        <module name="game-lol-force" />
         <module name="game-lol-conmmon" />
         <module name="game-lol-web" />
-        <module name="game-lol-conmmon-base" />
         <module name="game-eureka-server" />
+        <module name="game-lol-occupation" />
       </profile>
     </annotationProcessing>
   </component>
