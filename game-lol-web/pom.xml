@@ -38,6 +38,16 @@
         </dependency>
 
         <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.drtrang</groupId>
+            <artifactId>druid-spring-boot2-starter</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>com.zy</groupId>
             <artifactId>game-lol-conmmon</artifactId>
             <version>1.0-SNAPSHOT</version>

@@ -1,0 +1,27 @@
+server:
+  port: 8090
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8085/eureka/
+
+spring:
+  application:
+    name: lol-web
+
+  main:
+    allow-bean-definition-overriding: true
+
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/the_games?characterEncoding=UTF-8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+feign:
+  htttpclient:
+    enabled: false
+  okhttp:
+    enabled: true

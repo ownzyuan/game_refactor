@@ -1,7 +1,7 @@
-package com.zy.hero.rpc;
+package com.zy.web.controller;
 
 import com.zy.common.entity.LolHero;
-import com.zy.hero.service.LolHeroService;
+import com.zy.web.service.WebLolHeroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,33 +10,31 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-import static com.zy.hero.utils.LolHeroUtil.LolHeroToDO;
-
 @RestController
-@RequestMapping(value = "/api/hero")
-public class LolHeroRest {
+@RequestMapping("/lol/hero")
+public class LolHeroController {
 
     @Autowired
-    private LolHeroService lolHeroService;
+    private WebLolHeroService webLolHeroService;
 
     @PostMapping("/query")
     public List<LolHero> query(@RequestBody LolHero lolHero) {
-        return lolHeroService.query(LolHeroToDO(lolHero));
+        return webLolHeroService.query(lolHero);
     }
 
     @PostMapping("/insert")
     public int insert(@RequestBody LolHero lolHero) {
-        return lolHeroService.insert(LolHeroToDO(lolHero));
+        return webLolHeroService.insert(lolHero);
     }
 
     @PostMapping("/update")
     public int update(@RequestBody LolHero lolHero) {
-        return lolHeroService.update(LolHeroToDO(lolHero));
+        return webLolHeroService.update(lolHero);
     }
 
     @PostMapping("/delete")
     public int delete(@RequestBody Long id) {
-        return lolHeroService.delete(id);
+        return webLolHeroService.delete(id);
     }
 
 }
