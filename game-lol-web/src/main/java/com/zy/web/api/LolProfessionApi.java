@@ -14,6 +14,9 @@ public interface LolProfessionApi {
     @PostMapping("/api/profession/query")
     List<LolProfession> query(@RequestBody LolProfession lolProfession);
 
+    @PostMapping("/api/profession/queryById")
+    LolProfession queryById(@RequestBody Long id);
+
     @PostMapping("/api/profession/insert")
     int insert(@RequestBody LolProfession lolProfession);
 

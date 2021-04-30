@@ -24,6 +24,13 @@ public class LolForceRest {
         return lolForceService.query(LolForceToDO(lolForce));
     }
 
+    @PostMapping("/queryById")
+    public LolForce queryById(@RequestBody Long id) {
+        LolForce lolForce = new LolForce();
+        lolForce.setId(id);
+        return lolForceService.query(LolForceToDO(lolForce)).get(0);
+    }
+
     @PostMapping("/insert")
     public int insert(@RequestBody LolForce lolForce) {
         return lolForceService.insert(LolForceToDO(lolForce));

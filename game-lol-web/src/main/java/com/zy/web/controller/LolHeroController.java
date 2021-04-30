@@ -1,6 +1,7 @@
 package com.zy.web.controller;
 
 import com.zy.common.entity.LolHero;
+import com.zy.common.vo.LolHeroVO;
 import com.zy.web.service.WebLolHeroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +19,7 @@ public class LolHeroController {
     private WebLolHeroService webLolHeroService;
 
     @PostMapping("/query")
-    public List<LolHero> query(@RequestBody LolHero lolHero) {
+    public List<LolHeroVO> query(@RequestBody LolHero lolHero) {
         return webLolHeroService.query(lolHero);
     }
 

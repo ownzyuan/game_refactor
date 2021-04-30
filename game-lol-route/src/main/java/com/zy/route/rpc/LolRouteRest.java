@@ -25,6 +25,13 @@ public class LolRouteRest {
         return lolRouteService.query(LolRouteToDO(lolRoute));
     }
 
+    @PostMapping("/queryById")
+    public LolRoute queryById(@RequestBody Long id) {
+        LolRoute lolRoute = new LolRoute();
+        lolRoute.setId(id);
+        return lolRouteService.query(LolRouteToDO(lolRoute)).get(0);
+    };
+
     @PostMapping("/insert")
     public int insert(@RequestBody LolRoute lolRoute) {
         return lolRouteService.insert(LolRouteToDO(lolRoute));

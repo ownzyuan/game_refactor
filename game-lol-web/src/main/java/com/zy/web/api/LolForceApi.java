@@ -14,6 +14,9 @@ public interface LolForceApi {
     @PostMapping("/api/force/query")
     List<LolForce> query(@RequestBody LolForce lolForce);
 
+    @PostMapping("/api/force/queryById")
+    LolForce queryById(@RequestBody Long id);
+
     @PostMapping("/api/force/insert")
     int insert(@RequestBody LolForce lolForce);
 

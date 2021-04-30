@@ -21,18 +21,25 @@ public class LolProfessionRest {
     private LolProfessionService lolProfessionService;
     
     @PostMapping("/query")
-    public List<LolProfession> query(@RequestBody LolProfession LolProfession) {
-        return lolProfessionService.query(LolProfessionToDO(LolProfession));
+    public List<LolProfession> query(@RequestBody LolProfession lolProfession) {
+        return lolProfessionService.query(LolProfessionToDO(lolProfession));
     }
 
+    @PostMapping("/queryById")
+    public LolProfession queryById(@RequestBody Long id) {
+        LolProfession lolProfession = new LolProfession();
+        lolProfession.setId(id);
+        return lolProfessionService.query(LolProfessionToDO(lolProfession)).get(0);
+    };
+
     @PostMapping("/insert")
-    public int insert(@RequestBody LolProfession LolProfession) {
-        return lolProfessionService.insert(LolProfessionToDO(LolProfession));
+    public int insert(@RequestBody LolProfession lolProfession) {
+        return lolProfessionService.insert(LolProfessionToDO(lolProfession));
     }
 
     @PostMapping("/update")
-    public int update(@RequestBody LolProfession LolProfession) {
-        return lolProfessionService.update(LolProfessionToDO(LolProfession));
+    public int update(@RequestBody LolProfession lolProfession) {
+        return lolProfessionService.update(LolProfessionToDO(lolProfession));
     }
 
     @PostMapping("/delete")

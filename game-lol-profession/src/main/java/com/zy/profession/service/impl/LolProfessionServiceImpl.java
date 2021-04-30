@@ -7,7 +7,9 @@ import com.zy.profession.service.LolProfessionService;
 import com.zy.profession.utils.LolProfessionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,6 +25,9 @@ public class LolProfessionServiceImpl implements LolProfessionService {
     @Override
     public List<LolProfession> query(LolProfessionDO DO) {
         List<LolProfessionDO> lolProfessionDOList = lolProfessionMapper.query(DO);
+        if (CollectionUtils.isEmpty(lolProfessionDOList)) {
+            return Collections.EMPTY_LIST;
+        }
         return lolProfessionDOList.stream()
                 .map(LolProfessionUtil::LolProfessionDoToEntity)
                 .collect(Collectors.toList());

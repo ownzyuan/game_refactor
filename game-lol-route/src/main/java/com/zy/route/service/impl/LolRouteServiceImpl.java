@@ -7,7 +7,9 @@ import com.zy.route.service.LolRouteService;
 import com.zy.route.utils.LolRouteUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,6 +25,9 @@ public class LolRouteServiceImpl implements LolRouteService {
     @Override
     public List<LolRoute> query(LolRouteDO DO) {
         List<LolRouteDO> lolRouteDOList = lolRouteMapper.query(DO);
+        if (CollectionUtils.isEmpty(lolRouteDOList)) {
+            return Collections.EMPTY_LIST;
+        }
         return lolRouteDOList.stream()
                 .map(LolRouteUtil::LolRouteDoToEntity)
                 .collect(Collectors.toList());

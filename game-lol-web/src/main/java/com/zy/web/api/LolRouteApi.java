@@ -14,6 +14,9 @@ public interface LolRouteApi {
     @PostMapping("/api/route/query")
     List<LolRoute> query(@RequestBody LolRoute lolRoute);
 
+    @PostMapping("/api/route/queryById")
+    LolRoute queryById(@RequestBody Long id);
+
     @PostMapping("/api/route/insert")
     int insert(@RequestBody LolRoute lolRoute);
 

@@ -7,7 +7,9 @@ import com.zy.force.service.LolForceService;
 import com.zy.force.utils.LolForceUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,6 +24,9 @@ public class LolForceServiceImpl implements LolForceService {
     @Override
     public List<LolForce> query(LolForceDO DO) {
         List<LolForceDO> lolForceDOList = lolForceMapper.query(DO);
+        if (CollectionUtils.isEmpty(lolForceDOList)) {
+            return Collections.EMPTY_LIST;
+        }
         return lolForceDOList.stream()
                 .map(LolForceUtil::LolForceDoToEntity)
                 .collect(Collectors.toList());

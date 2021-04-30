@@ -15,6 +15,11 @@ public class LolProfessionFallback implements LolProfessionApi {
     }
 
     @Override
+    public LolProfession queryById(Long id) {
+        return null;
+    }
+
+    @Override
     public int insert(LolProfession lolProfession) {
         return 0;
     }

@@ -14,6 +14,11 @@ public class LolForceFallback implements LolForceApi {
     }
 
     @Override
+    public LolForce queryById(Long id) {
+        return null;
+    }
+
+    @Override
     public int insert(LolForce lolForce) {
         return 0;
     }

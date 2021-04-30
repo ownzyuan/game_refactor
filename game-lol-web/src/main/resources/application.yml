@@ -5,6 +5,8 @@ eureka:
   client:
     service-url:
       defaultZone: http://127.0.0.1:8085/eureka/
+    # 开启后客户端就会去注册中心拉取服务
+    fetch-registry: true
 
 spring:
   application:

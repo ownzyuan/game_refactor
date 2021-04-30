@@ -1,12 +1,13 @@
 package com.zy.web.service;
 
 import com.zy.common.entity.LolHero;
+import com.zy.common.vo.LolHeroVO;
 
 import java.util.List;
 
 public interface WebLolHeroService {
 
-    List<LolHero> query(LolHero lolHero);
+    List<LolHeroVO> query(LolHero lolHero);
 
     int insert(LolHero lolHero);
 

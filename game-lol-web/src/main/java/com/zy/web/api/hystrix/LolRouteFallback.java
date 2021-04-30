@@ -14,6 +14,11 @@ public class LolRouteFallback implements LolRouteApi {
     }
 
     @Override
+    public LolRoute queryById(Long id) {
+        return null;
+    }
+
+    @Override
     public int insert(LolRoute lolRoute) {
         return 0;
     }

@@ -7,7 +7,9 @@ import com.zy.hero.service.LolHeroService;
 import com.zy.hero.utils.LolHeroUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,6 +24,9 @@ public class LolHeroServiceImpl implements LolHeroService {
     @Override
     public List<LolHero> query(LolHeroDO DO) {
         List<LolHeroDO> lolHeroDOList = lolHeroMapper.query(DO);
+        if (CollectionUtils.isEmpty(lolHeroDOList)) {
+            return Collections.EMPTY_LIST;
+        }
         return lolHeroDOList.stream()
                 .map(LolHeroUtil::LolHeroDoToEntity)
                 .collect(Collectors.toList());
