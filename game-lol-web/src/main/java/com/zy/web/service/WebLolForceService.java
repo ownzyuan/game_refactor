@@ -7,11 +7,11 @@ import java.util.List;
 
 public interface WebLolForceService {
 
-    List<LolForce> query(LolForce lolHero);
+    List<LolForce> query(LolForce lolForce);
 
-    int insert(LolForce lolHero);
+    int insert(LolForce lolForce);
 
-    int update(LolForce lolHero);
+    int update(LolForce lolForce);
 
     int delete(Long id);
 
