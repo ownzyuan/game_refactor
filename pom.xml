@@ -16,6 +16,7 @@
         <module>game-lol-force</module>
         <module>game-lol-route</module>
         <module>game-lol-profession</module>
+        <module>game-lol-admin</module>
     </modules>
 
     <packaging>pom</packaging>

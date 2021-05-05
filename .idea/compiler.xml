@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="game-lol-profession" />
         <module name="game-lol-conmmon" />
+        <module name="game-lol-admin" />
         <module name="game-lol-conmmon-base" />
         <module name="game-lol-hero" />
         <module name="game-lol-force" />
